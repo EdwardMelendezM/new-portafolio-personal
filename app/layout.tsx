@@ -10,7 +10,7 @@ const fontSans = FontSans({
 });
 
 export const metadata = {
-    title: "Crea y no dudes",
+    title: "InfoCode19",
     description: "Mejora tus proyectos con info code 19",
     keywords: "sistemas, programas, desarrollo, web, apps, moviles, android, ios, windows, linux, mac, os, x, ios, android, flutter, react, angular, vue, svelte, next, nuxt, gatsby, ionic, cordova, phonegap, electron, desktop, web, mobile, pwa, spa, mpa, ssr, ssg, jss, css, html, js, ts, dart, python, php, ruby, go, rust, c, c++, c#, java, kotlin, swift, objective-c, sql, nosql, graphql, rest, api, restful, soap, json, xml, yaml, ini, toml, csv, excel, word, powerpoint, pdf, jpg, png, gif, svg, mp4, mp3, avi, mov, flv, webm, ogg, wmv, aac, wav, flac, aiff, m4a, m4v, mkv, vtt, s",
     author: "Edward M.M.",
