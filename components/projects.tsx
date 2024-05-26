@@ -1,7 +1,8 @@
 'use client'
 
 import Image from "next/image";
-import Link from "next/link";
+import useModalStore from "@/hooks/use-modal-store";
+import ProjectModal from "@/components/project-modal";
 
 const projects = [
     {
@@ -42,6 +43,8 @@ const projects = [
 ];
 
 const Projects: React.FC = () => {
+    const openModal = useModalStore((state) => state.openModal);
+
     return (
         <div className="w-full flex flex-col items-center justify-start py-10">
             <h1 className="text-4xl font-bold text-gray-700 dark:text-gray-200 mb-10">
@@ -50,26 +53,25 @@ const Projects: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 w-[90%] max-w-6xl">
                 {projects.map((project, index) => (
                     <div key={index} className="group relative">
-                        <Link href={project.url} legacyBehavior passHref>
-                            <a target="_blank" rel="noopener noreferrer" className="block">
-                                <div
-                                    className="relative w-full h-64 md:h-80 bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        layout="fill"
-                                        objectFit="contain"
-                                        className="transition-transform transform group-hover:scale-105"
-                                    />
-                                </div>
-                                <p className="text-center text-lg font-semibold text-gray-700 dark:text-gray-200 mt-4">
-                                    {project.title}
-                                </p>
-                            </a>
-                        </Link>
+                        <div
+                            onClick={() => openModal(project)}
+                            className="cursor-pointer relative w-full h-64 md:h-80 bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+                        >
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                layout="fill"
+                                objectFit="contain"
+                                className="transition-transform transform group-hover:scale-105"
+                            />
+                        </div>
+                        <p className="text-center text-lg font-semibold text-gray-700 dark:text-gray-200 mt-4">
+                            {project.title}
+                        </p>
                     </div>
                 ))}
             </div>
+            <ProjectModal/>
         </div>
     );
 }
