@@ -1,22 +1,32 @@
 import Image from "next/image";
 
-export const AboutMePage: React.FC = () => {
+const AboutMePage: React.FC = () => {
     return (
-        <div className='w-screen  md:h-[90vh] lg:h-[95vh] flex items-center justify-center'>
-            <div className='flex items-center space-x-6 w-[800px] h-[800px]'>
-                <div>
+        <div className='w-screen h-screen flex items-center justify-center'>
+            <div className='flex flex-col md:flex-row items-center justify-center gap-6 w-[90%] max-w-4xl p-4'>
+                <div className='relative w-64 h-64 md:w-96 md:h-96'>
                     <Image
-                        src='https://media.licdn.com/dms/image/D5603AQGc4NhVp56pzQ/profile-displayphoto-shrink_200_200/0/1688615748499?e=1721865600&v=beta&t=qqwKyTj-A4V_yb_5WSw-F9DCymMyH-c3jarv5pfRb_M'
+                        src='https://edwardmelendezm.github.io/Portafolio-Personal/img/logo.png'
                         alt='Profile Picture'
-                        width={200}
-                        height={200}
-                        className='rounded-full'
+                        width={500}
+                        height={500}
+                        objectFit='cover'
                     />
                 </div>
-                <p className='text-center text-2xl font-bold'>
-                    Hi, I'm a <span className='text-blue-500'>software engineer</span> who loves to <span
-                    className='text-purple-500'>build things</span>.
-                </p>
+                <div className="flex flex-col space-x-6 px-6 w-[400px] h-[400px] ">
+                    <p className="text-gray-500 dark:text-gray-200 text-2xl text-start font-bold">
+                        Hola, soy
+                    </p>
+                    <p className="text-blue-500 text-6xl text-center font-bold p-3">
+                        Full Stack Developer
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-200 text-2xl text-end font-bold py-2">
+                        Edward Melendez
+                    </p>
+                    <p className="text-blue-600 text-md text-end font-bold py-3">
+                        Experto en hacer realidad buenas ideas
+                    </p>
+                </div>
             </div>
         </div>
     );
