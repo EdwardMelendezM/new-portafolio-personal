@@ -2,9 +2,9 @@ import {NavigationMenuDemo} from "@/components/nav/navigator";
 
 const MainLayout = async ({children}: { children: React.ReactNode }) => {
     return (
-        <div className="">
+        <div className="w-full h-full">
             <NavigationMenuDemo/>
-            <main className="h-full">
+            <main className="">
                 {children}
             </main>
         </div>
