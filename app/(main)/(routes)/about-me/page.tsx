@@ -29,7 +29,7 @@ const AboutMePage: React.FC = () => {
                     </p>
                 </div>
             </div>
-            <div className="flex gap-6">
+            <div className="flex justify-center align-center gap-6 w-[90%] mt-20">
                 <Link href="/professional-experience" legacyBehavior passHref>
                     <a>
                         <span className="border-t-2 border-purple-500 text-purple-500 font-bold py-2 px-4
