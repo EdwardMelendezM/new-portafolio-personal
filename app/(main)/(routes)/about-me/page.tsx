@@ -52,7 +52,7 @@ const AboutMePage: React.FC = () => {
                         </p>
                     </a>
                 </Link>
-                <Link href="/projects" legacyBehavior passHref>
+                <Link href="/skills" legacyBehavior passHref>
                     <a>
                         <span className="border-t-2 border-blue-500 text-blue-500 font-bold py-2 px-4
                         hover:border-blue-800 hover:border-t-3 hover:text-blue-800 transition-colors">
