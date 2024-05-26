@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DynamicText from "@/components/dynamic-tech";
+import Link from "next/link";
 
 const AboutMePage: React.FC = () => {
     return (
@@ -21,13 +21,48 @@ const AboutMePage: React.FC = () => {
                     <p className="text-blue-500 text-6xl text-center font-bold p-3">
                         Full Stack Developer
                     </p>
-                    <p className="text-gray-600 dark:text-gray-200 text-2xl text-end font-bold py-2">
+                    <p className="text-gray-600 dark:text-gray-200 text-2xl text-end font-bold pt-2">
                         Edward Melendez
                     </p>
-                    <p className="text-blue-500 text-md text-end font-bold py-3">
+                    <p className="text-purple-500 text-md text-end font-bold pt-1">
                         Experto en hacer realidad buenas ideas
                     </p>
                 </div>
+            </div>
+            <div className="flex gap-6">
+                <Link href="/professional-experience" legacyBehavior passHref>
+                    <a>
+                        <span className="border-t-2 border-purple-500 text-purple-500 font-bold py-2 px-4
+                        hover:border-purple-800 hover:border-t-3 hover:text-purple-800 transition-colors">
+                            EXPERIENCIA
+                        </span>
+                        <p className="text-purple-600 dark:text-purple-400 text-2xl text-end font-bold py-2 px-4">
+                            + 3
+                        </p>
+                    </a>
+                </Link>
+                <Link href="/projects" legacyBehavior passHref>
+                    <a>
+                        <span className="border-t-2 border-orange-500 text-orange-500 font-bold py-2 px-4
+                        hover:border-orange-800 hover:border-t-3 hover:text-orange-800 transition-colors">
+                            PROYECTOS
+                        </span>
+                        <p className="text-orange-600 dark:text-orange-400 text-2xl text-end font-bold py-2 px-4">
+                            + 15
+                        </p>
+                    </a>
+                </Link>
+                <Link href="/projects" legacyBehavior passHref>
+                    <a>
+                        <span className="border-t-2 border-blue-500 text-blue-500 font-bold py-2 px-4
+                        hover:border-blue-800 hover:border-t-3 hover:text-blue-800 transition-colors">
+                            SKILLS
+                        </span>
+                        <p className="text-blue-600 dark:text-blue-400 text-2xl text-end font-bold py-2 px-4">
+                            + 5
+                        </p>
+                    </a>
+                </Link>
             </div>
         </div>
     );
