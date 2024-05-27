@@ -1,31 +1,24 @@
-import { useEffect } from 'react';
 import Image from 'next/image';
 
 import useModalStore from "@/hooks/use-modal-store";
+import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@/components/ui/dialog";
 
 const ProjectModal: React.FC = () => {
-    const { isOpen, project, closeModal } = useModalStore();
-
-    useEffect(() => {
-        const handleEscape = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        };
-        if (isOpen) {
-            document.addEventListener('keydown', handleEscape);
-        } else {
-            document.removeEventListener('keydown', handleEscape);
-        }
-        return () => document.removeEventListener('keydown', handleEscape);
-    }, [isOpen, closeModal]);
+    const {isOpen, project, onClose} = useModalStore();
 
     if (!isOpen || !project) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg max-w-lg w-full">
-                <div className="relative w-full h-80 md:h-[70vh]">
+        <Dialog
+            open={isOpen}
+            onOpenChange={onClose}>
+            <DialogContent className="p-0 overflow-hidden max-w-4xl">
+                <DialogHeader className="pt-8 px-6">
+                    <DialogTitle className="text-2xl text-center font-bold">
+                        {project.title}
+                    </DialogTitle>
+                </DialogHeader>
+                <div className="relative w-full h-80 md:h-[50vh]">
                     <Image
                         src={project.image}
                         alt={project.title}
@@ -34,18 +27,34 @@ const ProjectModal: React.FC = () => {
                         className="rounded-t-lg"
                     />
                 </div>
-                <div className="p-4">
-                    <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-200 mb-4">{project.title}</h2>
-                    <p className="text-lg text-blue-600 dark:text-blue-400 mb-4">{project.url}</p>
-                    <button
-                        onClick={closeModal}
-                        className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700"
-                    >
-                        Cerrar
-                    </button>
+                <div className="p-6">
+                    <div className="text-center mb-4">
+                        <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                        >
+                            Ver proyecto
+                        </a>
+                    </div>
+                    <div className="mb-4">
+                        <p className="text-lg font-semibold">Tecnologías utilizadas:</p>
+                        {project.technologies.map((tech, index) => (
+                            <li key={index} className="text-gray-700">{tech}</li>
+                        ))}
+                    </div>
+                    <div className="flex justify-end">
+                        <button
+                            onClick={onClose}
+                            className="bg-gray-100 text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition"
+                        >
+                            Cerrar
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </DialogContent>
+        </Dialog>
     );
 };
 

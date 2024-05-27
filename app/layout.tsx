@@ -2,7 +2,8 @@ import type {Metadata} from "next";
 import {Inter as FontSans} from "next/font/google";
 import {cn} from "@/lib/utils";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider"
+import {ThemeProvider} from "@/components/theme-provider"
+import {ModalProvider} from "@/providers/modal-provider";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -71,7 +72,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <ThemeProvider attribute="class"
                        defaultTheme="system">
             {children}
+            <ModalProvider/>
         </ThemeProvider>
+
         </body>
         </html>
     );

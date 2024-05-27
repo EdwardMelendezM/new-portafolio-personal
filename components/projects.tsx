@@ -8,37 +8,44 @@ const projects = [
     {
         title: "SmartOne",
         image: "/projects/proy-odin.PNG",
-        url: "https://odin.onscp.com/auth/login"
+        url: "https://odin.onscp.com/auth/login",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
     {
         title: "Airbnb Clone",
         image: "/projects/proy-airbnb.PNG",
-        url: "https://clone-airbnb-proyect-3x0alluux-edwardmelendezm.vercel.app/"
+        url: "https://clone-airbnb-proyect-3x0alluux-edwardmelendezm.vercel.app/",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
     {
         title: "Casa Miau",
         image: "/projects/proy-casa-miau.JPG",
-        url: "https://github.com/EdwardMelendezM/CasaMiau"
+        url: "https://github.com/EdwardMelendezM/CasaMiau",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
     {
         title: "Gestor de silabos C.I.",
         image: "/projects/proy-centro-computo.JPG",
-        url: "https://github.com/EdwardMelendezM/SISTEMA-DE-GESTION-DE-SILABOS-Y-CONTROL-DE-ASISTENCIA-PARA-EL-DEPARTAMENTO-ACADEMICO-DE-ING.-INFORMA"
+        url: "https://github.com/EdwardMelendezM/SISTEMA-DE-GESTION-DE-SILABOS-Y-CONTROL-DE-ASISTENCIA-PARA-EL-DEPARTAMENTO-ACADEMICO-DE-ING.-INFORMA",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
     {
         title: "Ecommerce CMS",
         image: "/projects/proy-ecommerce.jpg",
-        url: "https://ecommerce-admin-pi-eight.vercel.app/sign-in?redirect_url=https%3A%2F%2Fecommerce-admin-pi-eight.vercel.app%2F"
+        url: "https://ecommerce-admin-pi-eight.vercel.app/sign-in?redirect_url=https%3A%2F%2Fecommerce-admin-pi-eight.vercel.app%2F",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
     {
         title: "Afit gym",
         image: "/projects/proy-gym-afit.JPG",
-        url: "https://edwardmelendezm.github.io/"
+        url: "https://edwardmelendezm.github.io/",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
     {
         title: "Messenger Clone",
         image: "/projects/proy-messenger.jpg",
-        url: "https://messenger-clone-next-js-13-fdf5nsnqb-edwardmelendezm.vercel.app/"
+        url: "https://messenger-clone-next-js-13-fdf5nsnqb-edwardmelendezm.vercel.app/",
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
     },
 ];
 
