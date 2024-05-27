@@ -5,7 +5,6 @@ const Portfolio = () => {
         <>
             <Projects/>
         </>
-
     );
 }
 

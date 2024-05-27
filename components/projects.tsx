@@ -5,6 +5,7 @@ import Image from "next/image";
 import useModalStore from "@/hooks/use-modal-store";
 import ProjectModal from "@/components/project-modal";
 import {projects} from "@/projects";
+import {Separator} from "@/components/ui/separator";
 
 const Projects: React.FC = () => {
     const openModal = useModalStore((state) => state.openModal);
@@ -14,6 +15,7 @@ const Projects: React.FC = () => {
             <h1 className="text-4xl font-bold text-orange-400 dark:text-orange-400 mb-10">
                 Proyectos
             </h1>
+            <Separator className="mb-5"/>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] max-w-6xl">
                 {projects.map((project, index) => (
                     <div key={index} className="group relative">
@@ -42,7 +44,6 @@ const Projects: React.FC = () => {
                     </div>
                 ))}
             </div>
-            <ProjectModal/>
         </div>
     );
 }

@@ -38,7 +38,7 @@ const ProjectModal: React.FC = () => {
                     </Link>
                 </div>
                 <div className="px-6 pt-1 pb-5">
-                    <div className="mb-1 flex gap-1">
+                    <div className="mb-1 flex gap-1 flex-wrap">
                         {project.technologies.map((tech, index) => (
                             <Badge key={index} variant="outline">{tech}</Badge>
                         ))}
