@@ -1,78 +1,42 @@
 'use client'
 
 import Image from "next/image";
+
 import useModalStore from "@/hooks/use-modal-store";
 import ProjectModal from "@/components/project-modal";
-
-const projects = [
-    {
-        title: "SmartOne",
-        image: "/projects/proy-odin.PNG",
-        url: "https://odin.onscp.com/auth/login",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-    {
-        title: "Airbnb Clone",
-        image: "/projects/proy-airbnb.PNG",
-        url: "https://clone-airbnb-proyect-3x0alluux-edwardmelendezm.vercel.app/",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-    {
-        title: "Casa Miau",
-        image: "/projects/proy-casa-miau.JPG",
-        url: "https://github.com/EdwardMelendezM/CasaMiau",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-    {
-        title: "Gestor de silabos C.I.",
-        image: "/projects/proy-centro-computo.JPG",
-        url: "https://github.com/EdwardMelendezM/SISTEMA-DE-GESTION-DE-SILABOS-Y-CONTROL-DE-ASISTENCIA-PARA-EL-DEPARTAMENTO-ACADEMICO-DE-ING.-INFORMA",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-    {
-        title: "Ecommerce CMS",
-        image: "/projects/proy-ecommerce.jpg",
-        url: "https://ecommerce-admin-pi-eight.vercel.app/sign-in?redirect_url=https%3A%2F%2Fecommerce-admin-pi-eight.vercel.app%2F",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-    {
-        title: "Afit gym",
-        image: "/projects/proy-gym-afit.JPG",
-        url: "https://edwardmelendezm.github.io/",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-    {
-        title: "Messenger Clone",
-        image: "/projects/proy-messenger.jpg",
-        url: "https://messenger-clone-next-js-13-fdf5nsnqb-edwardmelendezm.vercel.app/",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS"]
-    },
-];
+import {projects} from "@/projects";
 
 const Projects: React.FC = () => {
     const openModal = useModalStore((state) => state.openModal);
 
     return (
         <div className="w-full flex flex-col items-center justify-start py-10">
-            <h1 className="text-4xl font-bold text-gray-700 dark:text-gray-200 mb-10">
+            <h1 className="text-4xl font-bold text-orange-400 dark:text-orange-400 mb-10">
                 Proyectos
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 w-[90%] max-w-6xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] max-w-6xl">
                 {projects.map((project, index) => (
                     <div key={index} className="group relative">
                         <div
                             onClick={() => openModal(project)}
-                            className="cursor-pointer relative w-full h-64 md:h-80 bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
-                        >
+                            className="cursor-pointer relative w-full h-72 md:h-72 bg-gray-200 dark:bg-gray-800
+                                rounded-lg overflow-hidden shadow-lg border-2 border-blue-400 ">
                             <Image
                                 src={project.image}
                                 alt={project.title}
                                 layout="fill"
-                                objectFit="contain"
-                                className="transition-transform transform group-hover:scale-105"
+                                objectFit="cover"
+                                className="transition-transform transform group-hover:scale-105 blur-none group-hover:filter group-hover:blur-sm"
                             />
+                            <div
+                                className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300
+                                    opacity-0 group-hover:opacity-100"/>
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0
+                                group-hover:opacity-100 transition-opacity duration-300 text-gray-300 font-bold">
+                                Ver más
+                            </div>
                         </div>
-                        <p className="text-center text-lg font-semibold text-gray-700 dark:text-gray-200 mt-4">
+                        <p className="text-center text-md font-semibold text-blue-700  dark:text-blue-400  mt-4">
                             {project.title}
                         </p>
                     </div>

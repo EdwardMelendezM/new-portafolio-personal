@@ -2,7 +2,7 @@ import {create} from 'zustand'
 
 interface ModalState {
     isOpen: boolean;
-    project: { title: string, image: string, url: string, technologies: string[] } | null;
+    project: { title: string, image: string, url: string, technologies: string[], descriptions: string[] } | null;
     openModal: (project: { title: string, image: string, url: string }) => void;
     onClose: () => void;
 }

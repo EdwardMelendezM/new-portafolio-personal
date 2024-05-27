@@ -1,7 +1,11 @@
 import Image from 'next/image';
+import Link from "next/link";
+import {EyeIcon} from "lucide-react";
 
 import useModalStore from "@/hooks/use-modal-store";
 import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@/components/ui/dialog";
+import {Badge} from "@/components/ui/badge";
+import {Button} from "@/components/ui/button";
 
 const ProjectModal: React.FC = () => {
     const {isOpen, project, onClose} = useModalStore();
@@ -23,34 +27,33 @@ const ProjectModal: React.FC = () => {
                         src={project.image}
                         alt={project.title}
                         layout="fill"
-                        objectFit="contain"
+                        objectFit="cover"
                         className="rounded-t-lg"
                     />
-                </div>
-                <div className="p-6">
-                    <div className="text-center mb-4">
-                        <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-                        >
+                    <Link href={project.url} target={"_blank"} className="absolute top-3 right-2">
+                        <Badge variant="default">
                             Ver proyecto
-                        </a>
-                    </div>
-                    <div className="mb-4">
-                        <p className="text-lg font-semibold">Tecnologías utilizadas:</p>
+                            <EyeIcon className="w-5 h-5 ml-2"/>
+                        </Badge>
+                    </Link>
+                </div>
+                <div className="px-6 pt-1 pb-5">
+                    <div className="mb-1 flex gap-1">
                         {project.technologies.map((tech, index) => (
-                            <li key={index} className="text-gray-700">{tech}</li>
+                            <Badge key={index} variant="outline">{tech}</Badge>
                         ))}
                     </div>
-                    <div className="flex justify-end">
-                        <button
-                            onClick={onClose}
-                            className="bg-gray-100 text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition"
-                        >
+                    <div className="mt-5">
+                        {project.descriptions.map((description, index) => (
+                            <Badge key={index} variant="default">
+                                {description}
+                            </Badge>
+                        ))}
+                    </div>
+                    <div className="flex justify-end mt-5">
+                        <Button onClick={onClose} variant="outline">
                             Cerrar
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </DialogContent>
