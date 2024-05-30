@@ -1,12 +1,12 @@
-const Skills = () => {
+import Skills from "@/components/skills";
+
+const SkillsPage = () => {
     return (
         <>
-            <p className="text-3xl text-center text-gray-600">
-                This is the skills page
-            </p>
+            <Skills/>
         </>
 
     );
 }
 
-export default Skills;
+export default SkillsPage;

@@ -1,6 +1,6 @@
 import Projects from "@/components/projects";
 
-const Portfolio = () => {
+const ProjectsPage = () => {
     return (
         <>
             <Projects/>
@@ -8,4 +8,4 @@ const Portfolio = () => {
     );
 }
 
-export default Portfolio;
+export default ProjectsPage;

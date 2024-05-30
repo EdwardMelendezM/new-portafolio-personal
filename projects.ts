@@ -102,7 +102,7 @@ export const experiences: Experience[] = [
         title: "Fundador de ASDU",
         company: "Association of Software Developers of the Unsaac",
         duration: "Dic 2021 - Presente",
-        description: "Lideré un equipo de desarrolladores fullstack para la creación de aplicaciones web altamente interactivas utilizando tecnologías modernas como React.js, Next.js, Node.js y Go.",
+        description: "Lideré equipos de desarrolladores fullstack para la creación de aplicaciones web altamente interactivas utilizando tecnologías modernas como React.js, Next.js, Node.js y Go.",
         badges: ['Next js','Prisma', 'Mongo DB', 'Tailwind','Mysql', '...']
     }
 ]

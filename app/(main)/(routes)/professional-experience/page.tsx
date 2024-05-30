@@ -5,7 +5,7 @@ import ExperienceCard from "@/components/experence-card";
 import {Separator} from "@/components/ui/separator";
 import {experiences} from "@/projects";
 
-const ProfessionalExperience = () => {
+const ProfessionalExperiencePage = () => {
     return (
         <div className="w-full flex flex-col items-center justify-start py-10 px-5">
             <h1 className="text-4xl font-bold text-orange-400 dark:text-orange-400 mb-10">
@@ -30,4 +30,4 @@ const ProfessionalExperience = () => {
     );
 };
 
-export default ProfessionalExperience;
+export default ProfessionalExperiencePage;
