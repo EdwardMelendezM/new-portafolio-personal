@@ -89,7 +89,7 @@ export const experiences: Experience[] = [
         company: "Smart City S.A.C.",
         duration: "Set 2023 - Presente",
         description: "Colabore en el desarrollo y mantenimiento de aplicaciones ERP. Ademas mejore el desarrollo de microservicios con angular 17 y go, implementando clean architecture.",
-        badges: ['Angular', 'Go', 'Microservicios', 'Clean Architecture', 'Kubernetes','Multi tenants', '...']
+        badges: ['Angular', 'Go', 'Microservices', 'Kubernetes', '...']
     },
     {
         title: "Fundador de InfoCode19",

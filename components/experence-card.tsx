@@ -7,7 +7,7 @@ export interface Experience {
     company: string;
     duration: string;
     description: string;
-    badges: string[]; // Nueva prop para los badges
+    badges: string[];
 }
 
 const ExperienceCard: React.FC<Experience> = ({ title, company, duration, description, badges }) => {
@@ -21,7 +21,7 @@ const ExperienceCard: React.FC<Experience> = ({ title, company, duration, descri
                 <p className="text-gray-700">{description}</p>
             </CardContent>
             <div className="py-1 px-6 text-gray-600 flex justify-between align-center">
-                <p className="text-sm">{duration}</p>
+                <p className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text text-sm">{duration}</p>
                 {badges && badges.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-2">
                         {badges.map((badge, index) => (
