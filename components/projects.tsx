@@ -3,9 +3,17 @@
 import Image from "next/image";
 
 import useModalStore from "@/hooks/use-modal-store";
-import ProjectModal from "@/components/project-modal";
 import {projects} from "@/projects";
 import {Separator} from "@/components/ui/separator";
+
+export interface Project {
+    title: string;
+    image: string;
+    url: string;
+    technologies: string[];
+    descriptions: string[];
+
+}
 
 const Projects: React.FC = () => {
     const openModal = useModalStore((state) => state.openModal);

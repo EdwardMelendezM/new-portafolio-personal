@@ -3,7 +3,7 @@
 import React from 'react';
 import ExperienceCard from "@/components/experence-card";
 import {Separator} from "@/components/ui/separator";
-import {projects} from "@/projects";
+import {experiences} from "@/projects";
 
 const ProfessionalExperience = () => {
     return (
@@ -12,14 +12,16 @@ const ProfessionalExperience = () => {
                 Experiencia
             </h1>
             <Separator className="mb-5"/>
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 sm:w-[80%] max-w-6xl md:w-[70%] lg:w-[60%] xl:w-[40%]">
-                {projects.map((project, index) => (
+            <div
+                className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 sm:w-[80%] max-w-6xl md:w-[70%] lg:w-[60%] xl:w-[40%]">
+                {experiences.map((project, index) => (
                     <ExperienceCard
-                        title="Desarrollador Frontend Senior"
-                        company="Acme Corporation"
-                        duration="Enero 2020 - Presente"
-                        description="Lideré un equipo de desarrolladores frontend para la creación de aplicaciones web altamente interactivas utilizando tecnologías modernas como React.js y Next.js."
-                        badges={['React.js', 'Next.js', 'HTML', 'CSS', 'JavaScript']}
+                        key={index}
+                        title={project.title}
+                        company={project.company}
+                        duration={project.duration}
+                        description={project.description}
+                        badges={project.badges}
                     />
                 ))}
             </div>

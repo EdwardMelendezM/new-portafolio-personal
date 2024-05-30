@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge"; // Importa el componente Badge
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-interface Experience {
+export interface Experience {
     title: string;
     company: string;
     duration: string;
@@ -20,7 +20,7 @@ const ExperienceCard: React.FC<Experience> = ({ title, company, duration, descri
             <CardContent className="py-4 px-6">
                 <p className="text-gray-700">{description}</p>
             </CardContent>
-            <CardFooter className="bg-gray-200 py-1 px-6 text-gray-600 flex justify-between align-center">
+            <div className="py-1 px-6 text-gray-600 flex justify-between align-center">
                 <p className="text-sm">{duration}</p>
                 {badges && badges.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-2">
@@ -31,7 +31,7 @@ const ExperienceCard: React.FC<Experience> = ({ title, company, duration, descri
                         ))}
                     </div>
                 )}
-            </CardFooter>
+            </div>
         </Card>
     );
 };

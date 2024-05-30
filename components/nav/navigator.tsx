@@ -66,7 +66,7 @@ export function NavigationMenuDemo() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>
-                        <Link href="/projects" legacyBehavior passHref>
+                        <Link href="/home/mele-dev/dev/new-portafolio-personal/projects" legacyBehavior passHref>
                             Proyectos
                         </Link>
                     </NavigationMenuTrigger>
