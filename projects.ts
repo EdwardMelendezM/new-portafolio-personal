@@ -6,11 +6,11 @@ export const projects: Project[] = [
         title: "SmartOne",
         image: "/projects/proy-odin.PNG",
         url: "https://odin.onscp.com/auth/login",
-        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/CD", "AWS", "Multi tenants"],
+        technologies: ["Angular 17", "Go", "Microservicios", "Clean Architecture", "Docker", "Kubernetes", "Gitlab CI/cicd", "AWS", "Multi tenants"],
         descriptions: [
             "Colabore en el desarrollo de microservicios con angular 17, implementando clean architecture.",
             "Colabore en el desarrollo de microservicios con go, implementando clean architecture.",
-            "Colabore en el despliege con kubernetes y docker, implementando CI/CD con Gitlab.",
+            "Colabore en el despliege con kubernetes y docker, implementando CI/cicd con Gitlab.",
             "Colabore en la implementacion de multi tenants, para la gestion de multiples empresas en un solo sistema.",
         ]
     },
