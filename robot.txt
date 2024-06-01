@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Allow: /
 
-Sitemap: http://example.com/sitemap.xml
+Sitemap: https://meldev-pe.site/sitemap.xml
