@@ -7,7 +7,7 @@ const MainLayout = async ({children}: { children: React.ReactNode }) => {
             <main className="">
                 {children}
             </main>
-            <ModeToggle className='absolute t-1'/>
+            <ModeToggle/>
         </div>
     );
 }
