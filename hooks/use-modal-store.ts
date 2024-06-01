@@ -1,9 +1,10 @@
 import {create} from 'zustand'
+import {Project} from "@/components/projects";
 
 interface ModalState {
     isOpen: boolean;
-    project: { title: string, image: string, url: string, technologies: string[], descriptions: string[] } | null;
-    openModal: (project: { title: string, image: string, url: string }) => void;
+    project: Project | null;
+    openModal: (project: Project) => void;
     onClose: () => void;
 }
 

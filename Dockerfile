@@ -22,9 +22,6 @@ FROM node:18-alpine AS runner
 # Set working directory
 WORKDIR /app
 
-# Install 'serve' to serve the build output
-RUN npm install -g serve
-
 # Copy the build output from the previous stage
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
@@ -37,4 +34,4 @@ RUN npm install --only=production
 EXPOSE 3000
 
 # Start the Next.js application
-CMD ["serve", "-s", ".next"]
+CMD ["npm", "run", "start"]
