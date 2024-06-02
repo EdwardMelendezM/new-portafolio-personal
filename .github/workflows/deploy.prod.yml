@@ -20,6 +20,7 @@ jobs:
           go-version: 1.16
 
       - name: Generate version
+        id: generate_version
         run: |
           git pull origin $GITHUB_REF
           touch build.env
@@ -33,11 +34,11 @@ jobs:
           echo "VERSION=$VERSION" > build.env
           echo "$GITHUB_REF - $VERSION"
 
-#      - name: Publish version tag
-#        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
-#        run: |
-#          VERSION=$(cat build.env | cut -d '=' -f2)
-#          git tag $VERSION
-#          git push origin $VERSION
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish version tag
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        run: |
+          VERSION=$(cat build.env | cut -d '=' -f2)
+          git tag $VERSION
+          git push origin $VERSION
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
