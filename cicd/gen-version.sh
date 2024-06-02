@@ -11,6 +11,8 @@ fi
 
 # Get the latest tag
 latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) | sed 's/v//g')
+echo "Latest tag: $latest_tag"
+echo ""
 
 # If there are no tags, set the next version to v1.0.0
 if [ -z "$latest_tag" ]; then
