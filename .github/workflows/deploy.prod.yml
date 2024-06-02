@@ -2,7 +2,7 @@ name: Project CI/CD
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "develop", "main" ]
 
 jobs:
   version:
@@ -24,11 +24,20 @@ jobs:
           VERSION=$(bash cicd/gen-version.sh | tr -d '\n')
           echo "$GITHUB_REF - $VERSION"
           if [[ "${VERSION:0:1}" != "v" ]]; then
-          echo "Cannot generate version, result: $VERSION"
-          exit 1
+            echo "Cannot generate version, result: $VERSION"
+            exit 1
           fi
           echo "VERSION=$VERSION" >> build.env
           echo "$GITHUB_REF - $VERSION"
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Set up authentication
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Publish version tag
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
