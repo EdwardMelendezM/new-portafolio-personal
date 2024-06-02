@@ -2,23 +2,36 @@ name: Project CI/CD
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
 
 jobs:
-  build:
+  version:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [ 20.9 ]
-
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm install
-      - run: npm run build
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: Generate version
+        run: |
+          touch build.env
+          chmod +x cicd/gen-version.sh
+          VERSION=$(bash cicd/gen-version.sh | tr -d '\n')
+          echo "$GITHUB_REF - $VERSION"
+          if [[ "${VERSION:0:1}" != "v" ]]; then
+          echo "Cannot generate version, result: $VERSION"
+          exit 1
+          fi
+          echo "VERSION=$VERSION" >> build.env
+          echo "$GITHUB_REF - $VERSION"
+
+      - name: Publish version tag
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+        run: |
+          git tag $VERSION
+          git push origin $VERSION
