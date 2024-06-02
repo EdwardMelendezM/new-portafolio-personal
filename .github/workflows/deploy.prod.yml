@@ -35,3 +35,5 @@ jobs:
         run: |
           git tag $VERSION
           git push origin $VERSION
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}

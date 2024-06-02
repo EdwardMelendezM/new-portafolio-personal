@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -x
 # Get the current branch
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 
