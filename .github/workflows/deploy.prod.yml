@@ -29,16 +29,16 @@ jobs:
             echo "Cannot generate version, result: $VERSION"
             exit 1
           fi
-          echo "VERSION=$VERSION" >> build.env
+          echo "VERSION=$VERSION" > build.env
           echo "$GITHUB_REF - $VERSION"
-      - name: Publish version tag
 
+      - name: Publish version tag
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
         run: |
-          VERSION=$(cat build.env | grep VERSION | cut -d '=' -f2)
-          echo "$GITHUB_REF - $VERSION"
-          git tag build.env
+          VERSION=$(cat build.env | cut -d '=' -f2)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag $VERSION
           git push origin $VERSION
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
