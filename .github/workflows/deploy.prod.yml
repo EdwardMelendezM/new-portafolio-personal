@@ -35,8 +35,9 @@ jobs:
 
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
         run: |
+          VERSION=$(cat build.env | grep VERSION | cut -d '=' -f2)
           echo "$GITHUB_REF - $VERSION"
-          git tag $VERSION
+          git tag build.env
           git push origin $VERSION
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
