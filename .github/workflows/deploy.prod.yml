@@ -37,11 +37,9 @@ jobs:
           fi
           NEW_VERSION="${VERSION_PREFIX}${MAJOR}.${MINOR}.${PATCH}"
           echo "$NEW_VERSION"
-          echo "::set-output name=new_version::$NEW_VERSION"
 
       - name: Push Git Tag
-        if: steps.update_version.outputs.new_version != steps.latest_tag.outputs.tag
         run: |
-          NEW_TAG="${{ steps.update_version.outputs.new_version }}"
+          NEW_TAG="$NEW_VERSION"
           git tag "$NEW_TAG"
           git push origin "$NEW_TAG"
