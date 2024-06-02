@@ -36,6 +36,7 @@ jobs:
             MINOR=0
           fi
           NEW_VERSION="${VERSION_PREFIX}${MAJOR}.${MINOR}.${PATCH}"
+          echo "$NEW_VERSION"
           echo "::set-output name=new_version::$NEW_VERSION"
 
       - name: Push Git Tag
