@@ -22,17 +22,13 @@ jobs:
           LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "$VERSION_PREFIX0.0.0")
           echo "::set-output name=tag::$LATEST_TAG"
 
-      - name: Extract version components
+      - name: Calculate new tag
         id: extract_version
         run: |
           VERSION="${{ steps.latest_tag.outputs.tag }}"
           MAJOR=$(echo "$VERSION" | cut -d. -f1 | sed 's/v//')
           MINOR=$(echo "$VERSION" | cut -d. -f2)
           PATCH=$(echo "$VERSION" | cut -d. -f3)
-
-      - name: Update version
-        id: update_version
-        run: |
           if [ "${{ github.ref }}" = "refs/heads/develop" ]; then
             MINOR=$((MINOR + 1))
           elif [ "${{ github.ref }}" = "refs/heads/master" ]; then
