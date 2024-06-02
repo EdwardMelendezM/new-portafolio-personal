@@ -1,21 +1,14 @@
-#!/bin/bash
-
-# Get the current branch
-current_branch=$(git rev-parse --abbrev-ref HEAD)
-
-# Validate the current branch
-if [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ]; then
-    echo "Error: Este script solo debe ejecutarse en las ramas 'develop' o 'main'. Rama: $current_branch"
-    exit 1
+# Get the latest tag if available
+if latest_tag=$(git describe --tags --abbrev=0 2>/dev/null); then
+    latest_tag=$(echo "$latest_tag" | sed 's/v//g')
+else
+    latest_tag=""
 fi
-
-# Get the latest tag
-latest_tag=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/v//g')
 
 # If there are no tags, set the next version to v1.0.0
 if [ -z "$latest_tag" ]; then
    echo "ENTRO AL NORMALIDO"
-    next_version="v1.0.0"
+   next_version="v1.0.0"
 else
    echo "ENTRO AL QUE TENIA"
     # Get the major, minor, and patch versions
@@ -39,6 +32,3 @@ else
     next_version="v$major.$minor.$patch"
 
 fi
-
-# Output the next version
-echo "$next_version"
