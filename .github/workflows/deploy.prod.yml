@@ -31,16 +31,6 @@ jobs:
           fi
           echo "VERSION=$VERSION" >> build.env
           echo "$GITHUB_REF - $VERSION"
-
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Set up authentication
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
-
       - name: Publish version tag
 
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
