@@ -10,9 +10,7 @@ if [ "$current_branch" != "develop" ] && [ "$current_branch" != "main" ]; then
 fi
 
 # Get the latest tag
-latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) | sed 's/v//g')
-echo "Latest tag: $latest_tag"
-echo ""
+latest_tag=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/v//g')
 
 # If there are no tags, set the next version to v1.0.0
 if [ -z "$latest_tag" ]; then
