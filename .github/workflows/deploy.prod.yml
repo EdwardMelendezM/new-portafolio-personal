@@ -21,6 +21,7 @@ jobs:
 
       - name: Generate version
         run: |
+          git pull origin $GITHUB_REF
           touch build.env
           chmod +x cicd/gen-version.sh
           VERSION=$(bash cicd/gen-version.sh | tr -d '\n')
