@@ -19,9 +19,9 @@ if [ -z "$latest_tag" ]; then
     next_version="v1.0.0"
 else
     # Get the major, minor, and patch versions
-    major=$(echo $latest_tag | cut -d. -f1)
-    minor=$(echo $latest_tag | cut -d. -f2)
-    patch=$(echo $latest_tag | cut -d. -f3)
+    major=$(echo "$latest_tag" | cut -d. -f1)
+    minor=$(echo "$latest_tag" | cut -d. -f2)
+    patch=$(echo "$latest_tag" | cut -d. -f3)
     # Increment the version based on the current branch DEVELOP
     if [ "$current_branch" = "develop" ]; then
         minor=$((minor + 1))
