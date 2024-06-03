@@ -39,8 +39,6 @@ jobs:
           echo "$NEW_VERSION"
           git tag "$NEW_VERSION"
           git push origin "$NEW_VERSION"
-  
-                '
   deploy-test:
     runs-on: ubuntu-latest  # Puedes cambiar esto según tus necesidades, por ejemplo, "windows-latest" o "macos-latest"
     steps:
