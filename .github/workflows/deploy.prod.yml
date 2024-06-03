@@ -43,7 +43,6 @@ jobs:
                 '
   deploy-test:
     runs-on: ubuntu-latest  # Puedes cambiar esto según tus necesidades, por ejemplo, "windows-latest" o "macos-latest"
-    needs: version
     steps:
       - name: Checkout código
         uses: actions/checkout@v2
