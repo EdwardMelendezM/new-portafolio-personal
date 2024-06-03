@@ -51,7 +51,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '20.9.0'
 
       - name: Install dependencies
         run: npm install
@@ -71,14 +71,17 @@ jobs:
           eval $(ssh-agent -s)
           ssh-add <(echo "$EC2_SSH_KEY")
           
-          # Copy files to EC2 instance
-          scp -r -o StrictHostKeyChecking=no . $EC2_USER@$EC2_HOST:/root/new-portafolio-personal
+          # Create a tarball of the build artifacts
+          tar -czf build.tar.gz .next static package.json
           
-          # SSH into EC2 instance and restart the application
+          # Copy the tarball to EC2 instance
+          scp -o StrictHostKeyChecking=no build.tar.gz $EC2_USER@$EC2_HOST:/app/new-portafolio-personal
+          
+          # SSH into EC2 instance, extract the tarball and restart the application
           ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
-            sudo -i
-            cd /root/new-portafolio-personal
-            npm run build
+            cd /app/new-portafolio-personal
+            tar -xzf build.tar.gz
+            npm install --production
             pm2 restart portafolio-app || pm2 start npm --name "portafolio-app" -- run start
           EOF
           
