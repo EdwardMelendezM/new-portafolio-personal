@@ -54,5 +54,10 @@ jobs:
           eval "$(ssh-agent -s)"
           echo "$PRIVATE_KEY" > private_key.pem && chmod 400 private_key.pem
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
+          cd /home/ubuntu/new-portafolio-personal  &&
+          git checkout develop &&
+          git fetch --all &&
+          git reset --hard origin/develop &&
+          git pull origin develop &&
           sh deploy.sh
           '
