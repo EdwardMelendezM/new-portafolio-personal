@@ -71,16 +71,17 @@ jobs:
           eval $(ssh-agent -s)
           ssh-add <(echo "$EC2_SSH_KEY")
           
-          # Create a tarball of the build artifacts
-          tar -czf build.tar.gz .next static package.json
+           # Create a tarball of the build artifacts excluding node_modules and .next
+          tar --exclude='node_modules' --exclude='.next' -czf build.tar.gz *
           
           # Copy the tarball to EC2 instance
-          scp -o StrictHostKeyChecking=no build.tar.gz $EC2_USER@$EC2_HOST:/app/new-portafolio-personal
+          scp -o StrictHostKeyChecking=no build.tar.gz $EC2_USER@$EC2_HOST:/home/ubuntu/app/new-portafolio-personal
           
           # SSH into EC2 instance, extract the tarball and restart the application
           ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
             cd /app/new-portafolio-personal
             tar -xzf build.tar.gz
+            rm build.tar.gz
             npm install --production
             pm2 restart portafolio-app || pm2 start npm --name "portafolio-app" -- run start
           EOF
