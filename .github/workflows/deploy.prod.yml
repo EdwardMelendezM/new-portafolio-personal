@@ -51,13 +51,18 @@ jobs:
           USER_NAME: ${{secrets.EC2_USER}}
 
         run: |
-          eval "$(ssh-agent -s)"
-          echo "$PRIVATE_KEY" > private_key.pem && chmod 400 private_key.pem
-          ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
-          cd /home/ubuntu/new-portafolio-personal  &&
-          git checkout develop &&
-          git fetch --all &&
-          git reset --hard origin/develop &&
-          git pull origin develop &&
-          sh deploy.sh
+          # Establecer la variable de entorno para evitar la confirmación interactiva de la clave del host
+          export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i private_key.pem"
+          
+          # Conectar a la instancia EC2 y ejecutar los scripts
+          ssh -i private_key.pem ${USER_NAME}@${HOSTNAME} '
+              cd /home/ubuntu/new-portafolio-personal &&
+              git checkout develop &&
+              git fetch --all &&
+              git reset --hard origin/develop &&
+              git pull origin develop &&
+              sh deploy.sh
+              echo "Deployed successfully"
+              exit
           '
+        
