@@ -35,7 +35,7 @@ jobs:
             MAJOR=$((MAJOR + 1))
             MINOR=0
           fi
-          NEW_VERSION="v1.2.0"
+          NEW_VERSION="${VERSION_PREFIX}${MAJOR}.${MINOR}.${PATCH}"
           echo "$NEW_VERSION"
           git tag "$NEW_VERSION"
           git push origin "$NEW_VERSION"

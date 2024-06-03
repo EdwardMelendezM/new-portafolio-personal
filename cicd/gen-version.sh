@@ -7,10 +7,8 @@ fi
 
 # If there are no tags, set the next version to v1.0.0
 if [ -z "$latest_tag" ]; then
-   echo "ENTRO AL NORMALIDO"
    next_version="v1.0.0"
 else
-   echo "ENTRO AL QUE TENIA"
     # Get the major, minor, and patch versions
     major=$(echo "$latest_tag" | cut -d. -f1)
     minor=$(echo "$latest_tag" | cut -d. -f2)
