@@ -51,8 +51,9 @@ jobs:
           host: ${{ secrets.EC2_HOST }}  # Debes configurar este secreto en la configuración de tu repositorio
           username: ${{ secrets.EC2_USER }}  # Debes configurar este secreto en la configuración de tu repositorio
           key: ${{ secrets.EC2_SSH_KEY }}  # Debes configurar este secreto en la configuración de tu repositorio
-          port: 22  # El puerto SSH de tu instancia EC2
           script: |
             echo "Hello World desde GitHub Actions en EC2"
+            pwd
+            whoami
 
 
